@@ -21,7 +21,7 @@ const useIncidents = () => {
   const fetchIncidents = async (lat_min:string, lon_min:string, lat_max:string, lon_max:string) => {
     setLoading(true);
     setError(null);
-
+    console.log(`fetching incidents with lat_min=${lat_min}, lon_min=${lon_min}, lat_max=${lat_max}, lon_max=${lon_max}`);
     try {
       // const response = await fetch(`/api/items?lat_min=${lat_min}&lon_min=${lon_min}&lat_max=${lat_max}&lon_max=${lon_max}`);
       // if (!response.ok) {

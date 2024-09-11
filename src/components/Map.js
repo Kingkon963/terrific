@@ -2,8 +2,7 @@
 import 'leaflet/dist/leaflet.css';
 import "leaflet-defaulticon-compatibility";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
-import { useEffect } from 'react';
-import { useMap, MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 import useIncidents from '@/hooks/useIncidents';
 import ControlPanel from '@/components/ControlPanel';
