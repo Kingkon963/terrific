@@ -7,8 +7,8 @@ const ControlPanel = ({fetchIncidents}) => {
 
   
   return (
-    <div className="w-[20dvw] !max-w-sm flex flex-col gap-4 p-4">
-      <Button onClick={fetchIncidents}>Fetch Incidents</Button>
+    <div className="absolute top-0 left-0 right-0 z-[999] bg-background flex items-center flex-col gap-4 p-4">
+      <Button onClick={fetchIncidents} className="max-w-64">Search this area</Button>
     </div>
   );
 };
