@@ -2,7 +2,7 @@
 import 'leaflet/dist/leaflet.css';
 import "leaflet-defaulticon-compatibility";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
+import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 
 import useIncidents from '@/hooks/useIncidents';
 import ControlPanel from '@/components/ControlPanel';
