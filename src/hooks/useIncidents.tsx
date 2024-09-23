@@ -1,8 +1,7 @@
-// hooks/useIncidents.js
-import { fetchIncidents } from '@/lib/api';
+import { fetchAllIncidents, fetchIncidentByRange, type fetchIncidentByRangeRequest } from '@/lib/api';
 import { useQuery } from '@tanstack/react-query';
 
-interface Incident {
+export type Incident = {
   id: number;
   reported_by: string;
   location: GeoJSON.Point;
@@ -11,14 +10,20 @@ interface Incident {
   incident_type: string;
 }
 
-const useIncidents = () => {
+const useIncidents = ({ fromRange: range } : {fromRange: fetchIncidentByRangeRequest | null}) => {
   const incidents = useQuery<Incident[]>({
     queryKey: ['incidents'], 
-    queryFn: fetchIncidents,
+    queryFn: fetchAllIncidents,
     enabled: false,
   });
 
-  return { incidents };
+  const incidentsByRange = useQuery<Incident[]>({
+    queryKey: ['incidentsByRange', range],
+    queryFn: () => range ? fetchIncidentByRange(range) : Promise.reject('Range is null'),
+    enabled: !!range,
+  });
+
+  return { incidents, incidentsByRange };
 };
 
 export default useIncidents;

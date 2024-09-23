@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen p-8 pb-20 sm:p-0 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex gap-8 row-start-2 items-center sm:items-start">
+      <main className="flex row-start-2 items-center sm:items-start">
         <Map />
       </main>
     </div>
