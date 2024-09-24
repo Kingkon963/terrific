@@ -5,7 +5,6 @@ import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import { MapContainer, TileLayer } from 'react-leaflet';
 
 import ControlPanel from '@/components/ControlPanel';
-import { MapEventHandler } from './MapEventHandler';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { RangeProvider } from '@/contexts/RangeContext';

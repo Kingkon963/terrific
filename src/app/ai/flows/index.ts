@@ -15,7 +15,7 @@ configureGenkit({
         })
     ],
     logLevel: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
-    enableTracingAndMetrics: true,
+    enableTracingAndMetrics: false,
 })
 
 const flows = {
