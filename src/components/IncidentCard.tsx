@@ -4,10 +4,13 @@ import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { FaMapLocationDot } from "react-icons/fa6";
 
-const IncidentCard = ({incident}: {incident: Incident}) => {
+const IncidentCard = ({incident, toggleIncidentList, show}: {incident: Incident; toggleIncidentList: () => void; show: boolean}) => {
   const map = useMap();
   const handleViewOnMap = () => {
     map.flyTo([incident.location.coordinates[1], incident.location.coordinates[0]], 14);
+    if(show) {
+      toggleIncidentList();
+    }
   }
   
   return (

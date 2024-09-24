@@ -53,9 +53,9 @@ const IncidentList = ({ toggleIncidentList, show }: { toggleIncidentList: () => 
       className='absolute right-0 top-0 bottom-0 z-[999] bg-transparent h-[100dvh] max-w-sm overflow-hidden'
     >
       <div className="flex flex-col gap-2 p-4 pt-20 overflow-y-auto h-full">
-        <Button onClick={toggleIncidentList} className='absolute top-4 right-4 z-[9999]'>Close</Button>
+        <Button variant={"destructive"} onClick={toggleIncidentList} className='absolute top-4 right-4 z-[9999]'>Close</Button>
         {incidentsByRange.isSuccess && incidentsByRange.data.map((item) => (
-          <IncidentCard incident={item} key={item.id} />
+          <IncidentCard incident={item} key={item.id} show={show} toggleIncidentList={toggleIncidentList} />
         ))}
       </div>
     </div>
