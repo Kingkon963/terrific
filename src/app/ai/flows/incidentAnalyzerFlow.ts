@@ -17,10 +17,10 @@ export const IncidentAnalyzerOutputSchema = defineSchema(
   z.object({
     location_name: z.string().describe('The name of the area where the incident occurred'),
     type: z.string().describe('The type of incident that occurred'),
-    location: z.object({
-      longitude: z.number().describe('The longitude of the incident'),
-      latitude: z.number().describe('The latitude of the incident'),
-    }),
+    // location: z.object({
+    //   longitude: z.number().describe('The longitude of the incident'),
+    //   latitude: z.number().describe('The latitude of the incident'),
+    // }),
   })
 )
 

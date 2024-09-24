@@ -14,9 +14,11 @@ const IncidentCard = ({incident}: {incident: Incident}) => {
     <div className='bg-white p-4 rounded-lg shadow-md flex flex-col gap-2'>
       <h3 className='text-lg font-semibold'>{incident.incident_type}</h3>
       <p>{incident.description}</p>
-      <Badge variant={"secondary"} className="my-1 mr-auto">{incident.reported_by.replaceAll('_', ' ')}</Badge>
+      <Badge variant={"secondary"} className="my-1 mr-auto !capitalize">{incident.reported_by.replaceAll('_', ' ').toLocaleLowerCase()}</Badge>
       <div className="flex justify-between items-center gap-2 flex-wrap">
-        <Badge variant={"default"}>{incident.location_name}</Badge>
+        <div className="w-full">
+          <Badge variant={"default"}>{incident.location_name}</Badge>
+        </div>
         
         <Button variant={"outline"} onClick={handleViewOnMap}>
           <FaMapLocationDot className='w-4 h-4 mr-1'/>
