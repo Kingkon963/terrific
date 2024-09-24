@@ -10,6 +10,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { RangeProvider } from '@/contexts/RangeContext';
 import IncidentMarker from './IncidentMarker';
 import IncidentList from './IncidentList';
+import { MapEventHandler } from './MapEventHandler';
 
 const queryClient = new QueryClient();
 
@@ -25,7 +26,7 @@ const Map = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {/* <MapEventHandler /> */}
+        <MapEventHandler />
         {/* Add markers to the map */}
         <IncidentMarker />
       </MapContainer>

@@ -8,6 +8,13 @@ export type Incident = {
   date_time: number;
   description: string;
   incident_type: string;
+  location_name: string;
+  incident_link: {
+    id: number;
+    newsAgency: string;
+    link: string;
+    status: string;
+  };
 }
 
 const useIncidents = ({ fromRange: range } : {fromRange: fetchIncidentByRangeRequest | null}) => {
