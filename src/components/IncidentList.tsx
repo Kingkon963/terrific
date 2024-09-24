@@ -21,14 +21,16 @@ const IncidentList = ({ toggleIncidentList, show }: { toggleIncidentList: () => 
     console.log(container);
     if (!container) return;
 
-    const stopPropagation = (e: WheelEvent) => {
+    const stopPropagation = (e: Event) => {
       e.stopPropagation();
     };
 
     container.addEventListener('wheel', stopPropagation);
+    container.addEventListener('touchmove', stopPropagation);
 
     return () => {
       container.removeEventListener('wheel', stopPropagation);
+      container.removeEventListener('touchmove', stopPropagation);
     };
   }, [containerRef.current]);
 
