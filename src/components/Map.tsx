@@ -12,10 +12,16 @@ import IncidentMarker from './IncidentMarker';
 import IncidentList from './IncidentList';
 import { MapEventHandler } from './MapEventHandler';
 import Locator from './Locator';
+import { useState } from 'react';
 
 const queryClient = new QueryClient();
 
 const Map = () => {
+  const [showIncidentList, setShowIncidentList] = useState(false);
+
+  const toggleIncidentList = () => {
+    setShowIncidentList(!showIncidentList);
+  };
 
   return (
     <div className='flex gap-4 w-full relative z-0'>
@@ -29,7 +35,7 @@ const Map = () => {
         {/* Add markers to the map */}
         <IncidentMarker />
         <Locator />
-        <IncidentList />
+        <IncidentList toggleIncidentList={toggleIncidentList} show={showIncidentList} />
       </MapContainer>
     </div>
   );

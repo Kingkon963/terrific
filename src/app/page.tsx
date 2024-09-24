@@ -12,7 +12,7 @@ const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 export default function Home() {
 
   return (
-    <div className="min-h-screen p-8 pb-20 sm:p-0 font-[family-name:var(--font-geist-sans)]">
+    <div className="min-h-screen p-0 select-none font-[family-name:var(--font-geist-sans)]">
       <main className="flex row-start-2 items-center sm:items-start">
         <Map />
       </main>
