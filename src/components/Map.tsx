@@ -11,6 +11,7 @@ import { RangeProvider } from '@/contexts/RangeContext';
 import IncidentMarker from './IncidentMarker';
 import IncidentList from './IncidentList';
 import { MapEventHandler } from './MapEventHandler';
+import Locator from './Locator';
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const Map = () => {
         <MapEventHandler />
         {/* Add markers to the map */}
         <IncidentMarker />
+        <Locator />
       </MapContainer>
     </div>
   );
