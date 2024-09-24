@@ -12,7 +12,7 @@ configureGenkit({
             apiKey: process.env.GOOGLE_GENAI_API_KEY,
         }),
         dotprompt({
-            dir:  path.join("src", "app", "ai", "prompts"),
+            dir:  path.resolve("src", "app", "ai", "prompts"),
         })
     ],
     logLevel: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
