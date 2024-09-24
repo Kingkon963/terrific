@@ -1,5 +1,5 @@
 import { googleAI } from '@genkit-ai/googleai';
-import { findDistrictFlow } from './findDistrictFlow';
+import { incidentAnalyzerFlow } from './incidentAnalyzerFlow';
 import { configureGenkit } from '@genkit-ai/core';
 import { dotprompt } from '@genkit-ai/dotprompt';
 
@@ -19,7 +19,7 @@ configureGenkit({
 })
 
 const flows = {
-    findDistrictFlow,
+    incidentAnalyzerFlow,
 }
 
 export default flows;

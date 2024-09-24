@@ -1,11 +1,11 @@
 import flows from '@/app/ai/flows';
-import { FindDistrictFlowInputSchema } from '@/app/ai/flows/findDistrictFlow';
+import { IncidentAnalyzerInputSchema } from '@/app/ai/flows/incidentAnalyzerFlow';
 import { runFlow } from '@genkit-ai/flow';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
+  console.log(req.body);
   const data = await req.json();
-  
   if (!data) {
     return NextResponse.json({
       error: 'No data provided',
@@ -15,11 +15,13 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const input = FindDistrictFlowInputSchema.parse(data);
+    const input = IncidentAnalyzerInputSchema.parse(data);
   
-    const output = await runFlow(flows.findDistrictFlow, input);
+    const output = await runFlow(flows.incidentAnalyzerFlow, input);
     
-    return NextResponse.json(output);
+    return NextResponse.json(output, {
+      status: 200,
+    });
   } catch (error) {
     console.error(error);
     return NextResponse.json({
