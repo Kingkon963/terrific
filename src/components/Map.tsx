@@ -19,9 +19,7 @@ const Map = () => {
 
   return (
     <div className='flex gap-4 w-full relative z-0'>
-      <IncidentList />
-
-      <MapContainer center={[23.7504, 90.40744]} zoom={7} style={{ height: '100dvh', width: '100%' }}>
+      <MapContainer center={[23.7504, 90.40744]} zoom={7} style={{ height: '100dvh' }} className='absolute left-0 right-0 top-0 bottom-0 z-50'>
         <ControlPanel />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -31,6 +29,7 @@ const Map = () => {
         {/* Add markers to the map */}
         <IncidentMarker />
         <Locator />
+        <IncidentList />
       </MapContainer>
     </div>
   );

@@ -1,10 +1,29 @@
+import React, { useEffect, useRef } from 'react';
 import useIncidents from "@/hooks/useIncidents";
 import useRange from "@/hooks/useRange";
-import { Badge } from "./ui/badge";
+import IncidentCard from './IncidentCard';
+
 
 const IncidentList = () => {
   const {range} = useRange();
   const {incidentsByRange} = useIncidents({fromRange: range});
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    console.log(container);
+    if (!container) return;
+
+    const stopPropagation = (e: WheelEvent) => {
+      e.stopPropagation();
+    };
+
+    container.addEventListener('wheel', stopPropagation);
+
+    return () => {
+      container.removeEventListener('wheel', stopPropagation);
+    };
+  }, [containerRef.current]);
 
   if (incidentsByRange.isLoading) {
     return <p>Loading...</p>
@@ -15,19 +34,19 @@ const IncidentList = () => {
   }
 
   if (incidentsByRange.isFetched === false || incidentsByRange.data?.length === 0) {
-    return <></>
+    return null;
   }
 
-  return(
-    <div className='flex flex-col gap-2 p-4'>
-      {incidentsByRange.isSuccess && incidentsByRange.data.map((item) => (
-          <div key={item.id} className='bg-white p-4 rounded-lg shadow-md flex flex-col gap-2'>
-            <h3 className='text-lg font-semibold'>{item.incident_type}</h3>
-            <p>{item.description}</p>
-            <Badge variant={"secondary"} className="my-1 mr-auto">{item.reported_by.replaceAll('_', ' ')}</Badge>
-            <a href={item.incident_link.link} target='_blank' rel='noreferrer noopener' className='text-blue-500 underline ml-auto'>Read more</a>
-          </div>
-      ))}
+  return (
+    <div 
+      ref={containerRef} 
+      className='absolute right-0 top-0 bottom-0 z-[999] bg-transparent h-[100dvh] max-w-sm overflow-hidden'
+    >
+      <div className="flex flex-col gap-2 p-4 overflow-y-auto h-full">
+        {incidentsByRange.isSuccess && incidentsByRange.data.map((item) => (
+          <IncidentCard incident={item} key={item.id} />
+        ))}
+      </div>
     </div>
   )
 }

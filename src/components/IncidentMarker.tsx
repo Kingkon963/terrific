@@ -1,7 +1,8 @@
 import useIncidents from "@/hooks/useIncidents";
 import useRange from "@/hooks/useRange";
 import { useEffect } from "react";
-import { GeoJSON } from 'react-leaflet';
+import { Marker, Popup } from 'react-leaflet';
+import IncidentCard from "./IncidentCard";
 
 
 function IncidentMarker() {
@@ -16,8 +17,13 @@ function IncidentMarker() {
 
   return (
     <>
+        {/* <GeoJSON key={item.id + Math.random()} data={item.location} /> */}
       {incidentsByRange.isSuccess && incidentsByRange.data.map((item) => (
-        <GeoJSON key={item.id + Math.random()} data={item.location} />
+        <Marker position={[item.location.coordinates[1], item.location.coordinates[0]]} key={item.id}>
+          <Popup>
+            <IncidentCard incident={item} />
+          </Popup>
+        </Marker>
       ))}
     </>
   )
