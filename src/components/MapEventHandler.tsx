@@ -6,7 +6,6 @@ export const MapEventHandler = () => {
   const map = useMapEvents({
     click: () => {
       console.log('MapEventHandler -> click');
-      // map.locate();
     },
     locationfound: (location) => {
       console.log('MapEventHandler -> location', location);

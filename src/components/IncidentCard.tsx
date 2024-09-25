@@ -9,7 +9,7 @@ const IncidentCard = ({incident, toggleIncidentList, show}: {incident: Incident;
   const handleViewOnMap = () => {
     map.flyTo([incident.location.coordinates[1], incident.location.coordinates[0]], 14);
     
-    if(show !== undefined && show === false && toggleIncidentList) {
+    if(show !== undefined && show === true && toggleIncidentList) {
       toggleIncidentList();
     }
   }

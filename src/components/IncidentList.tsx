@@ -18,7 +18,6 @@ const IncidentList = ({ toggleIncidentList, show }: { toggleIncidentList: () => 
 
   useEffect(() => {
     const container = containerRef.current;
-    console.log(container);
     if (!container) return;
 
     const stopPropagation = (e: Event) => {
